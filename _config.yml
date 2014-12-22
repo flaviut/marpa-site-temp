@@ -4,8 +4,8 @@ email: your-email@domain.com
 description: > # this means to ignore newlines until "baseurl:"
   Libmarpa is an implementation of the Marpa parsing algorithm, which
   recognizes most practical grammers in linear time.
-baseurl: "/" # the subpath of your site, e.g. /blog/
-url: "http://marpa.github.io" # the base hostname & protocol for your site
+baseurl: "/marpa-site-temp/" # the subpath of your site, e.g. /blog/
+url: "http://flaviut.github.io" # the base hostname & protocol for your site
 github_username:  jekyll
 
 # Build settings
