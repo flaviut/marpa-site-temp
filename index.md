@@ -1,13 +1,15 @@
 ---
 layout: page
-title: Marpa
+title: "Marpa: A modern parser"
 ---
 {::options parse_block_html="true" /}
 
-Parse anything
+Marpa: A modern parser
 {: .tagline}
 
 {% highlight perl %}
+use strict;
+use warnings;
 use Marpa::R2;
 
 my $dsl = <<'EOG';
@@ -15,7 +17,8 @@ lexeme default = latm => 1
 
 Calculator ::= Expr action => ::first
 Expr ::= Number action => ::first
-      || Expr '*' Expr action => do_mul
+      # `||` denotes precedence
+      || Expr '×' Expr action => do_mul
       || Expr '+' Expr action => do_add
 
 Number ~ [\d]+
@@ -25,14 +28,14 @@ whitespace ~ [\s]+
 EOG
 
 my $grammar = Marpa::R2::Scanless::G->new( { source => \$dsl} );
-my $value_ref = $grammar->parse( \'7 + 42 * 1', 'Calc' );
+my $value_ref = $grammar->parse( \'7 + 42 × 1', 'Calc' );
 
-# $_ looks like [context, Expr1, ('+'|'*'), Expr2]
+print "$$value_ref\n";
+#=> 49
+
+# $_ looks like [context, Expr1, ('+'|'×'), Expr2]
 sub Calc::do_add { return $_[1] + $_[3]; }
 sub Calc::do_mul { return $_[1] * $_[3]; }
-
-printf("$$value_ref\n")
-#=> 49
 {% endhighlight %} {: .big-example}
 
 
