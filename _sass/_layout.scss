@@ -1,0 +1,157 @@
+body {
+  color: $text-color;
+  background-color: $background-color;
+  font-size: $font-size;
+  font-family: $base-font-family;
+  line-height: $line-height;
+
+  pre {
+    font-family: $mono-font-family;
+    white-space: pre-wrap;
+    line-height: ($line-height - 1) * 0.5 + 1;
+
+    background-color: $accent-background-color;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: $accent-font-family;
+  }
+  h1 { font-size: $font-size * 2.0; }
+  h2 { font-size: $font-size * 1.8; }
+  h3 { font-size: $font-size * 1.6; }
+  h4 { font-size: $font-size * 1.4; }
+  h5 { font-size: $font-size * 1.2; }
+  h6 { font-size: $font-size * 1.0; }
+
+  blockquote {
+    margin-left: $gutters;
+    width: calc(100% - #{$gutters});
+    background: $accent-background-color;
+    border-left: 10px solid $grey-color-light;
+  }
+
+  ul { list-style: inside disc;    padding-left: $gutter; }
+  ol { list-style: inside decimal; padding-left: $gutter; }
+  ul, ol { text-indent: $gutter; }
+
+  strong { font-weight: bold }
+  em { font-style: italic; }
+
+  abbr {
+    text-decoration: dotted underline;
+  }
+}
+
+@mixin border($style,  $sides...) {
+  // thanks http://stackoverflow.com/a/13291075/2299084
+  @if($sides == "") {
+    border: $style;
+  } @else {
+    @each $side in $sides {
+      border-#{$side}: $style;
+    }
+  }
+}
+
+@mixin box-shadow($horizontal: 0px, $vertical: 1px, $blur: 2px, $color: $grey-color-dark) {
+  -webkit-box-shadow: $horizontal $vertical $blur $color;
+  -moz-box-shadow: $horizontal $vertical $blur $color;
+  box-shadow: $horizontal $vertical $blur $color;
+}
+
+@mixin horizontal-list {
+  display: inline;
+  margin-left: $gutter;
+  margin-right: $gutter;
+}
+
+nav {
+  @include container;
+  @include clearfix;
+
+  background-color: $accent-background-color;
+
+  font-size: $font-size * 1.1;
+
+  // rounded corners when large
+  @include border(1px solid black, bottom);
+  @include media-query($container-max-width) {
+    @include border(1px solid black, left, right, bottom);
+    border-radius: 0px 0px 5px 5px; // bottom border
+  }
+  @include box-shadow(0, 0px, 5px);
+
+
+  a {
+    text-decoration: none;
+    color: $grey-color-dark;
+  }
+
+  a:hover {
+    color: $grey-color;
+  }
+
+  > * { margin: 0px; }
+
+  .logo {
+    float: left;
+    margin: $gutter;
+
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    font-weight: inherit;
+    font-size: inherit;
+  }
+
+  .nav-items {
+    float: right;
+    margin: $gutter;
+    font-size: inherit;
+
+    li { @include horizontal-list; }
+    li.active { font-weight: bolder; }
+  }
+}
+
+
+main {
+  @include container;
+
+  > * {
+    @include unit();
+    @include clearfix;
+
+    > pre {
+      @include unit(three-fourths);
+
+      float: none;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+
+  .tagline {
+    text-align: center;
+    font-family: $accent-font-family;
+    font-size: $font-size * 4;
+  }
+
+  .big-example {
+    > pre {
+      background-color: $background-color;
+    }
+  }
+
+  .features {
+    .third {
+      @include unit(third);
+    }
+  }
+}
+
+footer {
+  @include container;
+  @include clearfix;
+
+  li { @include horizontal-list; }
+}

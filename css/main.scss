@@ -1,0 +1,52 @@
+---
+# Only the main Sass file needs front matter (the dashes are enough)
+---
+
+@import "compass-reset";
+@include global-reset;
+
+@import url(http://fonts.googleapis.com/css?family=Anonymous+Pro:400,700|Lora);
+
+// Our variables
+$base-font-family:   "Segoe UI", "Helvetica Neue", "WeblySleek UI", sans-serif;
+$accent-font-family: "Lora", serif;
+$mono-font-family:   "Anonymous Pro", monospace;
+$font-size:          15px;
+$small-font-size:    $font-size * 0.875;
+$line-height:        1.5;
+
+$text-color:        #111;
+$background-color:  #eee;
+$accent-background-color: #F7F7F7;
+
+$brand-color:       #275DB9;
+$brand-color-light: lighten($brand-color, 30%);
+$brand-color-dark:  darken($brand-color, 25%);
+
+$grey-color:        #828282;
+$grey-color-light:  lighten($grey-color, 15%);
+$grey-color-dark:   darken($grey-color, 20%);
+
+// Width of the content area
+$content-width:     800px;
+
+$on-palm:           600px;
+$on-laptop:         800px;
+
+$container-max-width: $content-width;
+
+@import "girder";
+
+// Using media queries with like this:
+// @include media-query($on-palm) {
+//     .wrapper {
+//         padding-right: $spacing-unit / 2;
+//         padding-left: $spacing-unit / 2;
+//     }
+// }
+
+
+$gutter: $gutters / 2;
+
+// Import partials from `sass_dir` (defaults to `_sass`)
+@import "layout", "syntax-highlighting";
