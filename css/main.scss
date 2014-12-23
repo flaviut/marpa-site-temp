@@ -11,6 +11,7 @@
 $base-font-family:   "Segoe UI", "Helvetica Neue", "WeblySleek UI", sans-serif;
 $accent-font-family: "Lora", serif;
 $mono-font-family:   "Anonymous Pro", monospace;
+
 $font-size:          15px;
 $small-font-size:    $font-size * 0.875;
 $line-height:        1.5;
@@ -33,6 +34,7 @@ $content-width:     800px;
 $on-palm:           600px;
 $on-laptop:         800px;
 
+$html-classes: true;
 $container-max-width: $content-width;
 
 @import "girder";

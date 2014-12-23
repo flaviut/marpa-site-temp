@@ -72,6 +72,7 @@ nav {
   background-color: $accent-background-color;
 
   font-size: $font-size * 1.1;
+  @include media-query(0, $small-breakpoint) { font-size: $small-font-size; }
 
   // rounded corners when large
   @include border(1px solid black, bottom);
@@ -80,7 +81,6 @@ nav {
     border-radius: 0px 0px 5px 5px; // bottom border
   }
   @include box-shadow(0, 0px, 5px);
-
 
   a {
     text-decoration: none;
@@ -134,6 +134,7 @@ main {
     text-align: center;
     font-family: $accent-font-family;
     font-size: $font-size * 4;
+    @include media-query(0, $small-breakpoint) { font-size: $font-size * 2; }
   }
 
   .big-example {
