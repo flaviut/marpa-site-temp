@@ -17,7 +17,7 @@ lexeme default = latm => 1
 
 Calculator ::= Expr action => ::first
 Expr ::= Number action => ::first
-      # `||` denotes precedence
+      # `||` denotes lower precedence
       || Expr '×' Expr action => do_mul
       || Expr '+' Expr action => do_add
 
@@ -33,7 +33,7 @@ my $value_ref = $grammar->parse( \'7 + 42 × 1', 'Calc' );
 print "$$value_ref\n";
 #=> 49
 
-# $_ looks like [context, Expr1, ('+'|'×'), Expr2]
+# @_ looks like ( $action_object, Expr1, ('+'|'×'), Expr2 )
 sub Calc::do_add { return $_[1] + $_[3]; }
 sub Calc::do_mul { return $_[1] * $_[3]; }
 {% endhighlight %} {: .big-example}
