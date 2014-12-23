@@ -51,7 +51,7 @@ Marpa will parse any grammar, even ambiguous ones. If it can be expressed with
   </div>
   <div class="third">
 ### Flexible
-Marpa can be paused at any point for custom parsing logic to be run.
+Marpa can be paused at any point to run custom parsing logic with full location awareness.
   </div>
 </div>
 
