@@ -1,0 +1,42 @@
+@mixin border($style,  $sides...) {
+  // thanks http://stackoverflow.com/a/13291075/2299084
+  @if($sides == "") {
+    border: $style;
+  } @else {
+    @each $side in $sides {
+      border-#{$side}: $style;
+    }
+  }
+}
+
+@mixin box-shadow($horizontal: 0px, $vertical: 1px, $blur: 2px, $color: $grey-color-dark) {
+  -webkit-box-shadow: $horizontal $vertical $blur $color;
+  -moz-box-shadow: $horizontal $vertical $blur $color;
+  box-shadow: $horizontal $vertical $blur $color;
+}
+
+@mixin horizontal-list {
+  display: inline;
+  margin-left: $gutter;
+  margin-right: $gutter;
+}
+
+@mixin for-size($sizes...) {
+  @each $size in $sizes {
+    @if $size == small {
+      @media screen and (max-width: $small-breakpoint) {
+        @content }
+    } @else if $size == medium {
+      @media screen and (min-width: $small-breakpoint) and (max-width: $large-breakpoint) {
+        @content }
+    } @else if $size == large {
+      @media screen and (min-width: $large-breakpoint) {
+        @content }
+    } @else {
+      @error "Unknown size #{$size}, expected small, medium, or large"; }
+  }
+}
+
+@mixin transition($on...) {
+  transition: $on 0.5s ease;
+}

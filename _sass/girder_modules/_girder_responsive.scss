@@ -19,7 +19,7 @@
     }
   }
   @else {
-    @include media-query(10em, $small-breakpoint) {
+    @include max-width($small-breakpoint) {
       %unit {
         width: 100%;
         left: 0;
@@ -63,7 +63,7 @@
       }
     }
     @else {
-      @include media-query(10em, $small-breakpoint) {
+      @include max-width($small-breakpoint) {
         text-align: center;
       }
     }
@@ -76,7 +76,7 @@
       }
     }
     @else {
-      @include media-query(10em, $small-breakpoint) {
+      @include max-width($small-breakpoint) {
         display: none;
       }
     }

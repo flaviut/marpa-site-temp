@@ -42,33 +42,6 @@ body {
   }
 }
 
-@mixin border($style,  $sides...) {
-  // thanks http://stackoverflow.com/a/13291075/2299084
-  @if($sides == "") {
-    border: $style;
-  } @else {
-    @each $side in $sides {
-      border-#{$side}: $style;
-    }
-  }
-}
-
-@mixin box-shadow($horizontal: 0px, $vertical: 1px, $blur: 2px, $color: $grey-color-dark) {
-  -webkit-box-shadow: $horizontal $vertical $blur $color;
-  -moz-box-shadow: $horizontal $vertical $blur $color;
-  box-shadow: $horizontal $vertical $blur $color;
-}
-
-@mixin horizontal-list {
-  display: inline;
-  margin-left: $gutter;
-  margin-right: $gutter;
-}
-
-@mixin transition($on...) {
-  transition: $on 0.5s ease;
-}
-
 nav {
   @include container;
   @include clearfix;
@@ -77,11 +50,13 @@ nav {
 
   @include transition(font);
   font-size: $font-size * 1.1;
-  @include media-query(0, $small-breakpoint) { font-size: $small-font-size; }
+  @include for-size(small) {
+    font-size: $small-font-size;
+  }
 
   // rounded corners when large
   @include border(1px solid black, bottom);
-  @include media-query($container-max-width) {
+  @include for-size(large) {
     @include border(1px solid black, left, right, bottom);
     border-radius: 0px 0px 5px 5px; // bottom border
   }
@@ -140,13 +115,11 @@ main {
     font-family: $accent-font-family;
 
     @include transition(font);
-    font-size: $font-size * 4;
-    @include media-query($small-breakpoint, $medium-breakpoint) {
-      font-size: $font-size * 3;
-    }
-    @include media-query(0, $small-breakpoint) {
-      font-size: $font-size * 2;
-    }
+    font-size: $font-size * 3.5;
+    @include for-size(medium) {
+      font-size: $font-size * 2.5; }
+    @include for-size(small) {
+      font-size: $font-size * 1.5; }
   }
 
   .big-example pre {

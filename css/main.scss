@@ -4,6 +4,7 @@
 
 @import "compass-reset";
 @include global-reset;
+@import "mixins";
 
 @import url(http://fonts.googleapis.com/css?family=Anonymous+Pro:400,700|Lora);
 
@@ -28,16 +29,10 @@ $grey-color:        #828282;
 $grey-color-light:  lighten($grey-color, 15%);
 $grey-color-dark:   darken($grey-color, 20%);
 
-// Width of the content area
-$content-width:     800px;
-
-$on-palm:           600px;
-$on-laptop:         800px;
-
 $html-classes: true;
-$container-max-width: $content-width;
 
 @import "girder";
+$container-max-width: $large-breakpoint;
 
 $gutter: $gutters / 2;
 
