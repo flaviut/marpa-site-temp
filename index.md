@@ -1,10 +1,10 @@
 ---
 layout: page
-title: "Marpa: A modern parser"
+title: "Marpa: a Modern Parser"
 ---
 {::options parse_block_html="true" /}
 
-Marpa: A modern parser
+Marpa: a Modern Parser
 {: .tagline}
 
 {% highlight perl %}
