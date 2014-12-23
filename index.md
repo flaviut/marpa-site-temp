@@ -46,8 +46,8 @@ Marpa parses all <abbr title="grammars parsable by regexes, LALR, or recursive d
   </div>
   <div class="third">
 ### Expressive
-Marpa will parse any grammar, even ambiguous ones. If it can be expressed with
-[BNF][bnf_def], Marpa will parse it.
+Marpa will parse anything you can express with
+[BNF][bnf_def], any grammar, even ambiguous ones.
   </div>
   <div class="third">
 ### Flexible
