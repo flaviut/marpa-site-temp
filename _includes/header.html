@@ -5,13 +5,10 @@
   </h1>
 
   <ul class="nav-items">
-  {% for page in site.pages %}
-    {% if page.title %}
-    <li>
-      <a href="{{ page.url | prepend: site.baseurl }}">{{ page.title }}</a>
-    </li>
-    {% endif %}
-  {% endfor %}
+    {% comment %}
+      <li><a href="{{ site.baseurl }}myurl">Title</a></li>
+    {% endcomment %}
+      <li><a href="{{ site.baseurl }}docs/">Docs</a></li>
   </ul>
 
 </nav>

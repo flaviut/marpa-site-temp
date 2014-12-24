@@ -110,6 +110,12 @@ main {
     }
   }
 
+  .big-code {
+    > pre {
+      @include unit();
+    }
+  }
+
   .tagline {
     text-align: center;
     font-family: $accent-font-family;

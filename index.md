@@ -1,6 +1,7 @@
 ---
 layout: page
-title: "Marpa: a Modern Parser"
+title: "Marpa: A modern parser"
+
 ---
 {::options parse_block_html="true" /}
 
