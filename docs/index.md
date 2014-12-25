@@ -6,4 +6,4 @@ title:  "Documentation"
 
 # Documentation
 
-[foo](architecture.html)
+[Structure](structure.html)
