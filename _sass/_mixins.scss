@@ -37,6 +37,14 @@
   }
 }
 
-@mixin transition($on...) {
-  transition: $on 0.5s ease;
+@mixin transition($on, $speed: medium) {
+  @if $speed == fast {
+    transition: $on 0.2s ease;
+  } @else if $speed == medium {
+    transition: $on 0.5s ease;
+  } @else if $speed == slow {
+    transition: $on 1s ease;
+  } @else {
+    @error "Unknown speed #{$speed}, expected slow, medium, or fast";
+  }
 }

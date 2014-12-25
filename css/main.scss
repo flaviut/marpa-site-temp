@@ -26,10 +26,8 @@ $brand-color-light: lighten($brand-color, 30%);
 $brand-color-dark:  darken($brand-color, 25%);
 
 $grey-color:        #828282;
-$grey-color-light:  lighten($grey-color, 15%);
+$grey-color-light:  lighten($grey-color, 20%);
 $grey-color-dark:   darken($grey-color, 20%);
-
-$html-classes: true;
 
 @import "girder";
 $container-max-width: $large-breakpoint;
@@ -37,4 +35,4 @@ $container-max-width: $large-breakpoint;
 $gutter: $gutters / 2;
 
 // Import partials from `sass_dir` (defaults to `_sass`)
-@import "layout", "syntax-highlighting";
+@import "girder_css", "layout", "syntax-highlighting";

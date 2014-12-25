@@ -10,18 +10,24 @@ body {
     white-space: pre-wrap;
     line-height: ($line-height - 1) * 0.5 + 1;
 
+    padding: $gutter;
+
     background-color: $accent-background-color;
+    border-radius: 3px;
+    @include box-shadow(2px, 2px, 5px);
   }
 
   h1, h2, h3, h4, h5, h6 {
     font-family: $accent-font-family;
+    font-weight: bolder;
   }
-  h1 { font-size: $font-size * 2.0; }
-  h2 { font-size: $font-size * 1.8; }
-  h3 { font-size: $font-size * 1.6; }
-  h4 { font-size: $font-size * 1.4; }
-  h5 { font-size: $font-size * 1.2; }
-  h6 { font-size: $font-size * 1.0; }
+
+  h1 { margin: .67em 0; font-size: $font-size * 2.0; }
+  h2 { margin: .75em 0; font-size: $font-size * 1.5; }
+  h3 { margin: .83em 0; font-size: $font-size * 1.17; }
+  h4 { margin: 1.0em 0; font-size: $font-size * 1.12; }
+  h5 { margin: 1.5em 0; font-size: $font-size * 0.83; }
+  h6 { margin: 1.67em 0; font-size: $font-size * 0.75; }
 
   blockquote {
     margin-left: $gutters;
@@ -37,8 +43,29 @@ body {
   strong { font-weight: bold }
   em { font-style: italic; }
 
-  abbr {
-    text-decoration: dotted underline;
+  abbr { text-decoration: dotted underline; }
+
+  table {
+      empty-cells: show;
+      border: 1px solid $grey-color;
+
+      td, th {
+          border-left: 1px solid $grey-color;
+          padding: 0.5em 1em;
+
+          &:first-child { border-left-width: 0px; }
+      }
+
+      thead {
+          background: $grey-color-light;
+          text-align: left;
+          vertical-align: bottom;
+      }
+
+      tbody tr:hover {
+        @include transition(background-color, fast);
+        background-color: darken($background-color, 7.5%);
+      }
   }
 }
 
@@ -97,25 +124,6 @@ nav {
 main {
   @include container;
 
-  > * {
-    @include unit();
-    @include clearfix;
-
-    > pre {
-      @include unit(three-fourths);
-
-      float: none;
-      margin-left: auto;
-      margin-right: auto;
-    }
-  }
-
-  .big-code {
-    > pre {
-      @include unit();
-    }
-  }
-
   .tagline {
     text-align: center;
     font-family: $accent-font-family;
@@ -129,11 +137,15 @@ main {
   }
 
   .big-example pre {
-    background-color: $background-color;
-  }
+    @include unit(three-fourths);
 
-  .features .third {
-    @include unit(third);
+    float: none;
+    margin-left: auto;
+    margin-right: auto;
+
+    background-color: $background-color;
+
+    @include box-shadow(0px, 0px, 0px);
   }
 }
 
@@ -142,4 +154,6 @@ footer {
   @include clearfix;
 
   li { @include horizontal-list; }
+
+  min-height: 2em;
 }

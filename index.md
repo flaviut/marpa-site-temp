@@ -40,16 +40,16 @@ sub Calc::do_mul { return $_[1] * $_[3]; }
 {% endhighlight %} {: .big-example}
 
 
-<div class="features">
-  <div class="third">
+<div class="row">
+  <div class="unit third">
 ### Fast
 Marpa parses all <abbr title="grammars parsable by regexes, LALR, or recursive descent">practical grammars</abbr> in linear time.
   </div>
-  <div class="third">
+  <div class="unit third">
 ### Expressive
 Marpa will parse any grammar you can express with [BNF][bnf_def], even ambiguous ones.
   </div>
-  <div class="third">
+  <div class="unit third">
 ### Flexible
 Marpa can be paused at any point to run custom parsing logic with full location awareness.
   </div>
